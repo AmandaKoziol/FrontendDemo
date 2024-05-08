@@ -1,0 +1,30 @@
+<div class="container p-5">     <!-- Container with padding 5px -->
+    <header>
+        <h2 class="pb-3">New Student</h2>    <!-- Header for new student form -->
+    </header>
+    <div class="input-group mb-3">          <!-- New student form with bottom margin 3px  -->
+        <span class="input-group-text">New Student Name</span>
+        <input type="text" class="form-control" placeholder="First Name" aria-label="First Name" [(ngModel)]="firstName" name="firstName">
+        <input type="text" class="form-control" placeholder="Last Name" aria-label="Last Name" [(ngModel)]="lastName" name="lastName">
+        <button class="btn btn-secondary" type="button" id="addButton" (click)="addStudent()">Add Student</button>
+    </div>
+    <header>
+        <h2 class="pb-3 pt-3">All Students</h2>   <!-- Header for student list -->
+    </header>
+    <table class="table">
+        <thead>             <!-- Label for student list -->
+          <tr>
+            <td>ID</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of students">     <!-- For student in students list, show id and name-->
+            <td>{{ student.id }}</td>
+            <td>{{ student.firstName }}</td>
+            <td>{{ student.lastName }}</td>
+          </tr>
+        </tbody>
+    </table>
+</div>

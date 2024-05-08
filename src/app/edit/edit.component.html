@@ -1,0 +1,21 @@
+<div class="container p-5">     <!-- Container with padding 5px -->
+    <header>
+        <h2 class="p-3">Edit Student</h2>    <!-- Header for student to be edited -->
+    </header>
+    <div class="input-group mb-3">       <!-- Dropdown for selecting student to be edited -->
+        <label class="input-group-text" for="inputGroupSelect01">Editing Student</label>
+        <select class="form-select" id="selectStudent" (change)="update($event)">
+          <option selected [value]=-1>Choose Student to Edit</option>
+          <option *ngFor="let student of students" [value]=student.id> 
+            {{ student.firstName }} {{ student.lastName }}
+          </option>
+        </select>
+        <button class="btn btn-outline-danger" type="button" id="deleteButton" (click)="deleteStudent()">Delete Student</button>
+    </div>
+    <div class="input-group mb-3">          <!-- Edit student form with bottom margin 3px  -->
+        <span class="input-group-text">Change Student Name</span>
+        <input type="text" class="form-control" placeholder="First Name" aria-label="First Name" [(ngModel)]="firstName" name="firstName">
+        <input type="text" class="form-control" placeholder="Last Name" aria-label="Last Name" [(ngModel)]="lastName" name="lastName">
+        <button class="btn btn-secondary" type="button" id="addButton" (click)="updateStudent()">Submit Changes</button>
+    </div>
+</div>
